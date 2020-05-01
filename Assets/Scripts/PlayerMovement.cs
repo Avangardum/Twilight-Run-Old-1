@@ -31,17 +31,23 @@ namespace TwilightRun
 
         private void FixedUpdate()
         {
+            Move();
+            SetRotation();
+        }
+
+        private void Move()
+        {
             Vector2 playerLightMovement = Vector2.zero;
             Vector2 playerDarkMovement = Vector2.zero;
 
             playerDarkMovement += _horizontalMovementPerFrameVector;
             playerLightMovement += _horizontalMovementPerFrameVector;
 
-            if(_isChangingVerticalPosition)
+            if (_isChangingVerticalPosition)
             {
                 float playerDarkDesiredY = _desiredVerticalPosition == PlayerVerticalPosition.LightDownAndDarkUp ? OnCeilingY : OnGroundY;
                 float playerLightDesiredY = _desiredVerticalPosition == PlayerVerticalPosition.LightDownAndDarkUp ? OnGroundY : OnCeilingY;
-                if(Mathf.Abs(playerLightDesiredY - _playerLight.transform.position.y) < _verticalMovementPerFrame)
+                if (Mathf.Abs(playerLightDesiredY - _playerLight.transform.position.y) < _verticalMovementPerFrame)
                 {
                     //завершаем движение
                     float distance = Mathf.Abs(playerLightDesiredY - _playerLight.transform.position.y);
@@ -56,10 +62,10 @@ namespace TwilightRun
                         playerDarkMovement.y += distance;
                     }
                     _isChangingVerticalPosition = false;
-                }    
+                }
                 else
                 {
-                    if(_playerLight.transform.position.y < playerLightDesiredY)
+                    if (_playerLight.transform.position.y < playerLightDesiredY)
                     {
                         playerLightMovement += _verticalMovementPerFrameVectorUp;
                         playerDarkMovement += _verticalMovementPerFrameVectorDown;
@@ -72,8 +78,28 @@ namespace TwilightRun
                 }
             }
 
-            _playerLight.transform.Translate(playerLightMovement);
-            _playerDark.transform.Translate(playerDarkMovement);
+            _playerLight.transform.Translate(playerLightMovement, Space.World);
+            _playerDark.transform.Translate(playerDarkMovement, Space.World);
+        }
+
+        private void SetRotation()
+        {
+            if (!_isChangingVerticalPosition)
+                return;
+            float playerLightRotation;
+            float playerDarkRotation;
+            if (_desiredVerticalPosition == PlayerVerticalPosition.LightDownAndDarkUp)
+            {
+                playerLightRotation = Mathf.Lerp(180, 0, (_playerLight.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
+                playerDarkRotation = Mathf.Lerp(0, 180, (_playerDark.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
+            }
+            else
+            {
+                playerLightRotation = Mathf.Lerp(0, 180, (_playerLight.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
+                playerDarkRotation = Mathf.Lerp(180, 0, (_playerDark.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
+            }
+            _playerLight.transform.eulerAngles = new Vector3(0, 0, playerLightRotation);
+            _playerDark.transform.eulerAngles = new Vector3(0, 0, playerDarkRotation);
         }
 
         private void CalculateVelocities()
