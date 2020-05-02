@@ -90,16 +90,16 @@ namespace TwilightRun
             float playerDarkRotation;
             if (_desiredVerticalPosition == PlayerVerticalPosition.LightDownAndDarkUp)
             {
-                playerLightRotation = Mathf.Lerp(180, 0, (_playerLight.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
+                playerLightRotation = Mathf.Lerp(0, 180, (_playerLight.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
                 playerDarkRotation = Mathf.Lerp(0, 180, (_playerDark.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
             }
             else
             {
                 playerLightRotation = Mathf.Lerp(0, 180, (_playerLight.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
-                playerDarkRotation = Mathf.Lerp(180, 0, (_playerDark.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
+                playerDarkRotation = Mathf.Lerp(0, 180, (_playerDark.transform.position.y - OnGroundY) / (OnCeilingY - OnGroundY));
             }
-            _playerLight.transform.eulerAngles = new Vector3(0, 0, playerLightRotation);
-            _playerDark.transform.eulerAngles = new Vector3(0, 0, playerDarkRotation);
+            _playerLight.transform.eulerAngles = new Vector3(playerLightRotation, 0, 0);
+            _playerDark.transform.eulerAngles = new Vector3(playerDarkRotation, 0, 0);
         }
 
         private void CalculateVelocities()
