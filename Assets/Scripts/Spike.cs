@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 
-public class Spike : MonoBehaviour
+namespace TwilightRun
 {
-    public enum SpikeColour
+    public class Spike : MonoBehaviour
     {
-        White,
-        Black,
-        Red
-    }
-
-    public SpikeColour Colour;
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerLight)))
+        public enum SpikeColour
         {
-            if (Colour == SpikeColour.Black || Colour == SpikeColour.Red)
-                KillPlayer();
+            White,
+            Black,
+            Red
         }
-        else if(collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerDark)))
-        {
-            if (Colour == SpikeColour.White || Colour == SpikeColour.Red)
-                KillPlayer();
-        }
-    }
 
-    private void KillPlayer()
-    {
-        Debug.Log("KILL");
-    }
+        public SpikeColour Colour;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerLight)))
+            {
+                if (Colour == SpikeColour.Black || Colour == SpikeColour.Red)
+                    KillPlayer();
+            }
+            else if (collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerDark)))
+            {
+                if (Colour == SpikeColour.White || Colour == SpikeColour.Red)
+                    KillPlayer();
+            }
+        }
+
+        private void KillPlayer()
+        {
+            Debug.Log("KILL");
+        }
+    } 
 }
