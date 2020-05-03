@@ -2,7 +2,7 @@
 
 namespace TwilightRun
 {
-    public class TagManager
+    public static class TagManager
     {
         public enum Tag
         {

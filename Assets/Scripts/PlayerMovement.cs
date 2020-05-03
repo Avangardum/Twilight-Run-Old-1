@@ -2,7 +2,7 @@
 
 namespace TwilightRun
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
     {
         private enum PlayerVerticalPosition
         {
@@ -25,8 +25,9 @@ namespace TwilightRun
         private PlayerVerticalPosition _desiredVerticalPosition = PlayerVerticalPosition.LightDownAndDarkUp;
         private bool _isChangingVerticalPosition = false;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             CalculateVelocities();
         }
 

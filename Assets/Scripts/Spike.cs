@@ -29,7 +29,7 @@ namespace TwilightRun
 
         private void KillPlayer()
         {
-            Debug.Log("KILL");
+            GameOverController.Instance.GameOver();
         }
     } 
 }

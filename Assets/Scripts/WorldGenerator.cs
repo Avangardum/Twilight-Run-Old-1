@@ -3,7 +3,7 @@ using System;
 
 namespace TwilightRun
 {
-    public class WorldGenerator : MonoBehaviour
+    public class WorldGenerator : SingletonMonoBehaviour<WorldGenerator>
     {
         [SerializeField] private float _chunkSize;
         [SerializeField] private float _distanceToEdgeForNewChunk;
@@ -47,8 +47,9 @@ namespace TwilightRun
             _playerPositionForNextChunkGeneration = _printheadPosition - _distanceToEdgeForNewChunk;
         }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _playerLight = GameObject.FindGameObjectWithTag(TagManager.GetTagName(TagManager.Tag.PlayerLight));
         }
 
