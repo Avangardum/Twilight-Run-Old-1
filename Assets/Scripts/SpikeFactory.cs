@@ -8,7 +8,7 @@ namespace TwilightRun
         [SerializeField] private float _onFloorY;
         [SerializeField] private float _onCeilingY;
 
-        internal GameObject CreateSpike(Spike.SpikeColour colour, FloorOrCeiling floorOrCeiling, float xPosition)
+        public GameObject CreateSpike(Spike.SpikeColour colour, FloorOrCeiling floorOrCeiling, float xPosition)
         {
             float yPosition = floorOrCeiling == FloorOrCeiling.Floor ? _onFloorY : _onCeilingY;
             float zRotation = floorOrCeiling == FloorOrCeiling.Floor ? 0 : 180;

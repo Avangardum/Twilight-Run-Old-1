@@ -1,6 +1,6 @@
 ﻿namespace TwilightRun
 {
-    enum FloorOrCeiling
+    public enum FloorOrCeiling
     {
         Floor,
         Ceiling
