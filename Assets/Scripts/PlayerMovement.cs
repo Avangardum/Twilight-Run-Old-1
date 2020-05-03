@@ -4,6 +4,12 @@ namespace TwilightRun
 {
     public class PlayerMovement : MonoBehaviour
     {
+        private enum PlayerVerticalPosition
+        {
+            LightDownAndDarkUp,
+            LightUpAndDarkDown
+        }
+
         [SerializeField] private GameObject _playerLight;
         [SerializeField] private GameObject _playerDark;
         [SerializeField] private float _horizontalSpeed;

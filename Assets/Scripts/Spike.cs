@@ -9,18 +9,18 @@ public class Spike : MonoBehaviour
         Red
     }
 
-    [SerializeField] private SpikeColour _colour;
+    public SpikeColour Colour;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerLight)))
         {
-            if (_colour == SpikeColour.Black || _colour == SpikeColour.Red)
+            if (Colour == SpikeColour.Black || Colour == SpikeColour.Red)
                 KillPlayer();
         }
         else if(collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerDark)))
         {
-            if (_colour == SpikeColour.White || _colour == SpikeColour.Red)
+            if (Colour == SpikeColour.White || Colour == SpikeColour.Red)
                 KillPlayer();
         }
     }
