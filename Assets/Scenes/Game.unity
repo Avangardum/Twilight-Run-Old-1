@@ -1406,7 +1406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerLight: {fileID: 236098715}
   _playerDark: {fileID: 161851485}
-  _horizontalSpeed: 3
+  _initialHorizontalSpeed: 3
+  _horizontalAcceleration: 0.05
   _verticalSpeedMultiplier: 3
   OnGroundY: -3
   OnCeilingY: 3

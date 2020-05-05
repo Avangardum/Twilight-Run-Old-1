@@ -12,7 +12,8 @@ namespace TwilightRun
 
         [SerializeField] private GameObject _playerLight;
         [SerializeField] private GameObject _playerDark;
-        [SerializeField] private float _horizontalSpeed;
+        [SerializeField] private float _initialHorizontalSpeed;
+        [SerializeField] private float _horizontalAcceleration;
         [SerializeField] private float _verticalSpeedMultiplier;
         [SerializeField] private float OnGroundY;
         [SerializeField] private float OnCeilingY;
@@ -20,6 +21,7 @@ namespace TwilightRun
         private Vector2 _horizontalMovementPerFrameVector;
         private Vector2 _verticalMovementPerFrameVectorUp;
         private Vector2 _verticalMovementPerFrameVectorDown;
+        private float _horizontalSpeed;
         private float _verticalSpeed;
         private float _verticalMovementPerFrame;
         private PlayerVerticalPosition _desiredVerticalPosition = PlayerVerticalPosition.LightDownAndDarkUp;
@@ -28,6 +30,7 @@ namespace TwilightRun
         protected override void Awake()
         {
             base.Awake();
+            _horizontalSpeed = _initialHorizontalSpeed;
             CalculateVelocities();
         }
 
@@ -40,6 +43,7 @@ namespace TwilightRun
         {
             Move();
             SetRotation();
+            _horizontalSpeed += _horizontalAcceleration * Time.fixedDeltaTime;
         }
 
         private void Move()
