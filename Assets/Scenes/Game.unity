@@ -313,9 +313,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chunkSize: 100
   _distanceToEdgeForNewChunk: 50
-  _minSpikeGap: 3
-  _maxSpikeGap: 10
+  _minObstacleGap: 3
+  _maxObstacleGap: 6
   _firstSpikePosition: 0
+  _blackAndWhiteObstacleSpikeDistance: 1
 --- !u!4 &188308005
 Transform:
   m_ObjectHideFlags: 0
