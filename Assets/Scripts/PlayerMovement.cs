@@ -34,6 +34,11 @@ namespace TwilightRun
             CalculateVelocities();
         }
 
+        private void Start()
+        {
+            InputController.Instance.Tap += StartSwapping;
+        }
+
         private void OnValidate()
         {
             CalculateVelocities();
@@ -57,7 +62,6 @@ namespace TwilightRun
 
             if (_isChangingVerticalPosition)
             {
-                float playerDarkDesiredY = _desiredVerticalPosition == PlayerVerticalPosition.LightDownAndDarkUp ? OnCeilingY : OnGroundY;
                 float playerLightDesiredY = _desiredVerticalPosition == PlayerVerticalPosition.LightDownAndDarkUp ? OnGroundY : OnCeilingY;
                 if (Mathf.Abs(playerLightDesiredY - _playerLight.transform.position.y) < _verticalMovementPerFrame)
                 {
