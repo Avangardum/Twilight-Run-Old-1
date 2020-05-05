@@ -1357,8 +1357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54f9fb386f1cd54e855572e12135b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followedObject: {fileID: 236098718}
-  _offset: 2.2
+  _player: {fileID: 236098718}
+  _playerXPositionOnCameraPercentage: 0.1
 --- !u!1 &1661878793
 GameObject:
   m_ObjectHideFlags: 0
