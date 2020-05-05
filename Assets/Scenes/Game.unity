@@ -316,7 +316,7 @@ MonoBehaviour:
   _minObstacleGap: 3
   _maxObstacleGap: 6
   _firstSpikePosition: 0
-  _blackAndWhiteObstacleSpikeDistance: 1
+  _blackAndWhiteObstacleSpikeDistance: 1.3
 --- !u!4 &188308005
 Transform:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ namespace TwilightRun
             Move();
             SetRotation();
             _horizontalSpeed += _horizontalAcceleration * Time.fixedDeltaTime;
+            CalculateVelocities();
         }
 
         private void Move()
