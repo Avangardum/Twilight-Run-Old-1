@@ -8,7 +8,8 @@ namespace TwilightRun
         [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private string _highScorePrefix;
-        [SerializeField] private float _pointsForUnitPassed;
+        [SerializeField] private float _pointsPerUnitPassed;
+        [SerializeField] private float _coinsPerPoint;
 
         private int _score;
         private bool _newRecord = false;
@@ -30,22 +31,22 @@ namespace TwilightRun
 
         private void Start()
         {
-            GameOverController.Instance.GameOverEvent += UpdateHighScore;
+            GameOverController.Instance.GameOverEvent += OnGameOver;
             HighScore = SaveDataManager.Instance.HighScore;
         }
 
         private void Update()
         {
-            Score = (int)(PlayerMovement.Instance.DistancePassed * _pointsForUnitPassed);
+            Score = (int)(PlayerMovement.Instance.DistancePassed * _pointsPerUnitPassed);
             _scoreText.text = Score.ToString();
             _highScoreText.text = _highScorePrefix + HighScore;
         }
 
-        private void UpdateHighScore()
+        private void OnGameOver()
         {
-            if (!_newRecord)
-                return;
-            SaveDataManager.Instance.HighScore = HighScore;
+            if (_newRecord)
+                SaveDataManager.Instance.HighScore = HighScore;
+            SaveDataManager.Instance.Coins += (int)(Score * _coinsPerPoint);
         }
     } 
 }

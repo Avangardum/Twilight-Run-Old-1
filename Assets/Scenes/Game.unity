@@ -2330,7 +2330,8 @@ MonoBehaviour:
   _scoreText: {fileID: 116963778}
   _highScoreText: {fileID: 665446406}
   _highScorePrefix: 'Best: '
-  _pointsForUnitPassed: 1
+  _pointsPerUnitPassed: 1
+  _coinsPerPoint: 0.1
 --- !u!4 &1997746545
 Transform:
   m_ObjectHideFlags: 0
