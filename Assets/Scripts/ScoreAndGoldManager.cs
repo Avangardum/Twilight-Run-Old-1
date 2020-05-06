@@ -3,10 +3,14 @@ using TMPro;
 
 namespace TwilightRun
 {
-    public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
+    public class ScoreAndGoldManager : SingletonMonoBehaviour<ScoreAndGoldManager>
     {
         [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private TextMeshProUGUI _highScoreText;
+        [SerializeField] private TextMeshProUGUI _coinsText;
+        [SerializeField] private TextMeshProUGUI _gameOverScoreText;
+        [SerializeField] private TextMeshProUGUI _gameOverHighScoreText;
+        [SerializeField] private TextMeshProUGUI _gameOverCoinsGainText;
         [SerializeField] private string _highScorePrefix;
         [SerializeField] private float _pointsPerUnitPassed;
         [SerializeField] private float _coinsPerPoint;
@@ -28,6 +32,7 @@ namespace TwilightRun
             }
         }
         public int HighScore { get; private set; }
+        public int CoinGain => (int)(Score * _coinsPerPoint);
 
         private void Start()
         {
@@ -40,13 +45,17 @@ namespace TwilightRun
             Score = (int)(PlayerMovement.Instance.DistancePassed * _pointsPerUnitPassed);
             _scoreText.text = Score.ToString();
             _highScoreText.text = _highScorePrefix + HighScore;
+            _coinsText.text = SaveDataManager.Instance.Coins.ToString();
         }
 
         private void OnGameOver()
         {
             if (_newRecord)
                 SaveDataManager.Instance.HighScore = HighScore;
-            SaveDataManager.Instance.Coins += (int)(Score * _coinsPerPoint);
+            SaveDataManager.Instance.Coins += CoinGain;
+            _gameOverScoreText.text = Score.ToString();
+            _gameOverHighScoreText.text = HighScore.ToString();
+            _gameOverCoinsGainText.text = "+ " + CoinGain;
         }
     } 
 }
