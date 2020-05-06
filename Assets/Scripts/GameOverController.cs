@@ -6,7 +6,6 @@ namespace TwilightRun
     public class GameOverController : SingletonMonoBehaviour<GameOverController>
     {
         [SerializeField] private GameObject _gameOverScreen;
-        [SerializeField] 
 
         public event Action GameOverEvent;
 

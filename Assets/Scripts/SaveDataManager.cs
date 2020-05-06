@@ -33,6 +33,16 @@ namespace TwilightRun
             }
         }
 
+        public bool IsTutorialPassed
+        {
+            get => _saveData.IsTutorialPassed;
+            set
+            {
+                _saveData.IsTutorialPassed = value;
+                Save();
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();

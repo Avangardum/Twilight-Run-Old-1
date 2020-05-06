@@ -29,7 +29,8 @@ namespace TwilightRun
 
         private void KillPlayer()
         {
-            GameOverController.Instance.GameOver();
+            GameOverController.Instance?.GameOver();
+            TutorialGameOverController.Instance?.GameOver();
         }
     } 
 }
