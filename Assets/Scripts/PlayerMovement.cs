@@ -27,6 +27,8 @@ namespace TwilightRun
         private PlayerVerticalPosition _desiredVerticalPosition = PlayerVerticalPosition.LightDownAndDarkUp;
         private bool _isChangingVerticalPosition = false;
 
+        public float DistancePassed { get; private set; }
+
         protected override void Awake()
         {
             base.Awake();
@@ -59,6 +61,7 @@ namespace TwilightRun
 
             playerDarkMovement += _horizontalMovementPerFrameVector;
             playerLightMovement += _horizontalMovementPerFrameVector;
+            DistancePassed += _horizontalMovementPerFrameVector.x;
 
             if (_isChangingVerticalPosition)
             {

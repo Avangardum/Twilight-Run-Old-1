@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace TwilightRun
 {
@@ -6,10 +7,13 @@ namespace TwilightRun
     {
         [SerializeField] private GameObject _gameOverScreen;
 
+        public event Action GameOverEvent;
+
         public void GameOver()
         {
             _gameOverScreen.SetActive(true);
             Time.timeScale = 0;
+            GameOverEvent?.Invoke();
         }
     }
 }
