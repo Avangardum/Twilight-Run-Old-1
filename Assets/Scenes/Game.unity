@@ -1005,7 +1005,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 401295202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1997746544}
+        m_MethodName: TryDoubleGoldGain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &401295202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4280,6 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df2e6a39ac7424b8c4d51e7ba5d403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doubleCoinsButton: {fileID: 401295201}
   _scoreText: {fileID: 116963778}
   _highScoreText: {fileID: 665446406}
   _coinsText: {fileID: 970156880}

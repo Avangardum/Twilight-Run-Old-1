@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace TwilightRun
 {
     public class ScoreAndGoldManager : SingletonMonoBehaviour<ScoreAndGoldManager>
     {
+        [SerializeField] private Button _doubleCoinsButton;
         [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private TextMeshProUGUI _highScoreText;
         [SerializeField] private TextMeshProUGUI _coinsText;
@@ -56,6 +58,19 @@ namespace TwilightRun
             _gameOverScoreText.text = Score.ToString();
             _gameOverHighScoreText.text = HighScore.ToString();
             _gameOverCoinsGainText.text = "+ " + CoinGain;
+        }
+
+        public void TryDoubleGoldGain()
+        {
+            AdManager.Instance.SetReward(DoubleGoldGain);
+            AdManager.Instance.PlayRewardedVideoAd();
+        }
+
+        private void DoubleGoldGain()
+        {
+            SaveDataManager.Instance.Coins += CoinGain;
+            _gameOverCoinsGainText.text = "+ " + CoinGain * 2;
+            _doubleCoinsButton.interactable = false;
         }
     } 
 }
