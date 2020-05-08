@@ -22,7 +22,6 @@ namespace TwilightRun
                 Save();
             }
         }
-
         public int Coins
         {
             get => _saveData.Coins;
@@ -32,13 +31,84 @@ namespace TwilightRun
                 Save();
             }
         }
-
         public bool IsTutorialPassed
         {
             get => _saveData.IsTutorialPassed;
             set
             {
                 _saveData.IsTutorialPassed = value;
+                Save();
+            }
+        }
+        public int ActiveBackground
+        {
+            get => _saveData.ActiveBackground;
+            set
+            {
+                _saveData.ActiveBackground = value;
+                Save();
+            }
+        }
+        public bool PlayerCatEarsActive
+        {
+            get => _saveData.PlayerCatEarsActive;
+            set
+            {
+                _saveData.PlayerCatEarsActive = value;
+                Save();
+            }
+        }
+        public bool SpikeCatEarsActive
+        {
+            get => _saveData.SpikeCatEarsActive;
+            set
+            {
+                _saveData.SpikeCatEarsActive = value;
+                Save();
+            }
+        }
+        public bool GrassBackgroundBought
+        {
+            get => _saveData.GrassBackgroundBought;
+            set
+            {
+                _saveData.GrassBackgroundBought = value;
+                Save();
+            }
+        }
+        public bool MultiColorBackgroundBought
+        {
+            get => _saveData.MultiColorBackgroundBought;
+            set
+            {
+                _saveData.MultiColorBackgroundBought = value;
+                Save();
+            }
+        }
+        public bool SkyBackgroundBought
+        {
+            get => _saveData.SkyBackgroundBought;
+            set
+            {
+                _saveData.SkyBackgroundBought = value;
+                Save();
+            }
+        }
+        public bool PlayerCatEarsBought
+        {
+            get => _saveData.PlayerCatEarsBought;
+            set
+            {
+                _saveData.PlayerCatEarsBought = value;
+                Save();
+            }
+        }
+        public bool SpikeCatEarsBought
+        {
+            get => _saveData.SpikeCatEarsBought;
+            set
+            {
+                _saveData.SpikeCatEarsBought = value;
                 Save();
             }
         }
