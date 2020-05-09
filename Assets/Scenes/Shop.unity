@@ -1256,7 +1256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy 100
+  m_Text: Buy 200
 --- !u!222 &402898727
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1733,7 +1733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &587789566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3162,9 +3162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d190504737f8a48894228fdf1b4a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _multiColorBackgroundPrice: 100
-  _grassBackgroundPrice: 100
-  _skyBackgroundPrice: 100
+  _multiColorBackgroundPrice: 200
+  _grassBackgroundPrice: 200
+  _skyBackgroundPrice: 200
   _playerCatEarsPrice: 300
   _spikeCatEarsPrice: 200
   _greenBackgroundIndex: 0
@@ -3223,7 +3223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1148875471
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3712,7 +3712,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy 100
+  m_Text: Buy 200
 --- !u!222 &1270286250
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5274,7 +5274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1941833740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5427,7 +5427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy 100
+  m_Text: Buy 200
 --- !u!222 &1948271032
 CanvasRenderer:
   m_ObjectHideFlags: 0
