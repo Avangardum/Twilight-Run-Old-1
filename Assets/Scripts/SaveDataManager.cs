@@ -31,12 +31,12 @@ namespace TwilightRun
                 Save();
             }
         }
-        public bool IsTutorialPassed
+        public bool TutorialPassed
         {
-            get => _saveData.IsTutorialPassed;
+            get => _saveData.TutorialPassed;
             set
             {
-                _saveData.IsTutorialPassed = value;
+                _saveData.TutorialPassed = value;
                 Save();
             }
         }

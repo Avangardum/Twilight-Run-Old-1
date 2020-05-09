@@ -10,7 +10,7 @@ namespace TwilightRun
         {
             if (collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerDark)) || collision.CompareTag(TagManager.GetTagName(TagManager.Tag.PlayerLight)))
             {
-                SaveDataManager.Instance.IsTutorialPassed = true;
+                SaveDataManager.Instance.TutorialPassed = true;
                 SceneLoader.Instance.LoadScene(_mainMenuName);
             }
         }

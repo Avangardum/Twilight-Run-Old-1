@@ -8,7 +8,7 @@ namespace TwilightRun
     {
         public int HighScore = 0;
         public int Coins = 0;
-        public bool IsTutorialPassed = false;
+        public bool TutorialPassed = false;
         public int ActiveBackground = 0;
         public bool PlayerCatEarsActive = false;
         public bool SpikeCatEarsActive = false;

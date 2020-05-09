@@ -8,7 +8,7 @@ namespace TwilightRun
 
         private void Start()
         {
-            if (!SaveDataManager.Instance.IsTutorialPassed)
+            if (!SaveDataManager.Instance.TutorialPassed)
                 SceneLoader.Instance.LoadScene(_tutorialSceneName);
         }
     } 
